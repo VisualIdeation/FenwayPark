@@ -101,7 +101,7 @@ void Fenway::addObjects(void) {
  */
 void Fenway::createPark(void) {
 	park = new Object("Park");
-	park->LoadFile("models/fenwaypark.3ds");
+	park->LoadFile("models/fenwaypark.obj");
 } // end createPark
 
 /*
