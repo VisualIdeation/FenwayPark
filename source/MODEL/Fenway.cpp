@@ -14,8 +14,9 @@
 #include <SYNC/Guard.h>
 
 /* Delta3D headers */
-#include <dtCore/object.h>
 #include <dtCore/camera.h>
+#include <dtCore/infinitelight.h>
+#include <dtCore/object.h>
 #include <dtCore/scene.h>
 #include <dtCore/system.h>
 #include <dtCore/environment.h>
@@ -93,6 +94,11 @@ Fenway::~Fenway(void) {
  * addObjects
  */
 void Fenway::addObjects(void) {
+	// create an infinite light
+	globalInfinite = new InfiniteLight(4, "GlobalInfiniteLight");
+	GetScene()->AddDrawable(globalInfinite.get());
+	globalInfinite->SetEnabled(true);
+
 	GetScene()->AddDrawable(park.get());
 } // end addObjects()
 
@@ -205,6 +211,13 @@ void Fenway::initContext(GLContextData & glContextData) const {
 
 	glContextData.addDataItem(this, dataItem);
 } // end initContext()
+
+/*
+ * toggleLight
+ */
+void Fenway::toggleLight(void) {
+	globalInfinite->SetEnabled(!globalInfinite->GetEnabled());
+}
 
 /*
  * togglePark

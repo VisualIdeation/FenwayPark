@@ -69,6 +69,8 @@ private:
 	GLMotif::PopupMenu* mainMenu;
 	int numberOfClippingPlanes;
 	GLMotif::PopupWindow* renderDialog;
+	GLMotif::ToggleButton * lightToggle;
+	GLMotif::ToggleButton * lightToggleRD;
 	GLMotif::ToggleButton * showParkToggle;
 	GLMotif::ToggleButton * showParkToggleRD;
 	GLMotif::ToggleButton * wireframeToggle;
